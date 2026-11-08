@@ -1,0 +1,31 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Environment / Secret
+.env
+
+# Large Files & Temp
+tmp/
+*.mp3
+*.wav
+*.mp4
+*.m4a
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Données réelles et configuration locale
+meetings.json
+glossary.json
+*.pbix
+assets/login.jpg.bak

@@ -1,0 +1,392 @@
+/* Meeting Intelligence — thème unique de l'application.
+   Les couleurs de base (primaire, fonds, bordures, police) sont dans .streamlit/config.toml ;
+   ce fichier ne fait qu'affiner la mise en page et les composants maison. */
+
+:root {
+    --mi-brand: #F2A922;
+    --mi-brand-hover: #FFB938;
+    --mi-brand-soft: rgba(242, 169, 34, 0.12);
+    --mi-brand-border: rgba(242, 169, 34, 0.35);
+    --mi-ink: #FFFFFF;
+    --mi-text: #CBD5E1;
+    --mi-muted: #8A97AD;
+    --mi-border: #26344F;
+    --mi-surface: #111B2E;
+    --mi-bg: #0B1222;
+    --mi-success: #34D399;
+    --mi-warning: #F2A922;
+    --mi-danger: #F87171;
+    --mi-radius: 12px;
+    --mi-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Mise en page ─────────────────────────────────────────────── */
+.block-container {
+    max-width: 1180px;
+    padding-top: 2.25rem;
+    padding-bottom: 4rem;
+}
+
+h1, h2, h3, h4 { letter-spacing: -0.01em; color: var(--mi-ink); }
+
+/* ── En-tête de page ──────────────────────────────────────────── */
+.mi-page-header {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--mi-border);
+}
+.mi-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mi-brand);
+    margin-bottom: 0.35rem;
+}
+.mi-page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--mi-ink);
+    margin: 0;
+}
+.mi-page-subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--mi-muted);
+    max-width: 720px;
+}
+
+/* ── Titres de section ───────────────────────────────────────── */
+.mi-section {
+    margin: 0.5rem 0 0.75rem;
+}
+.mi-section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--mi-ink);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mi-section-caption {
+    font-size: 0.875rem;
+    color: var(--mi-muted);
+    margin-top: 0.15rem;
+}
+.mi-count {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--mi-brand);
+    background: var(--mi-brand-soft);
+    border: 1px solid var(--mi-brand-border);
+    border-radius: 999px;
+    padding: 0.05rem 0.55rem;
+}
+
+/* ── Barre latérale : logo ───────────────────────────────────── */
+[data-testid="stSidebarLogo"] {
+    height: 2.75rem;
+    max-width: 100%;
+}
+
+/* ── Indicateurs (st.metric) ─────────────────────────────────── */
+[data-testid="stMetricLabel"] p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mi-muted);
+}
+[data-testid="stMetricValue"] {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--mi-ink);
+}
+
+/* ── Boutons ─────────────────────────────────────────────────── */
+.stButton > button,
+.stDownloadButton > button,
+.stFormSubmitButton > button {
+    font-weight: 500;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* ── Onglets ─────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--mi-border);
+}
+.stTabs [data-baseweb="tab"] {
+    padding: 0.6rem 0;
+    font-weight: 500;
+}
+
+/* ── Étiquettes ──────────────────────────────────────────────── */
+.mi-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.25rem 0 0.5rem; }
+.mi-tag {
+    font-size: 0.8rem;
+    color: var(--mi-text);
+    background: var(--mi-bg);
+    border: 1px solid var(--mi-border);
+    border-radius: 6px;
+    padding: 0.15rem 0.55rem;
+}
+
+/* ── Résultats de recherche ──────────────────────────────────── */
+.mi-result {
+    background: var(--mi-surface);
+    border: 1px solid var(--mi-border);
+    border-radius: var(--mi-radius);
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.75rem;
+    box-shadow: var(--mi-shadow);
+}
+.mi-result-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+.mi-result-title { font-weight: 600; color: var(--mi-ink); }
+.mi-result-meta { font-size: 0.8rem; color: var(--mi-muted); font-variant-numeric: tabular-nums; }
+.mi-result-text { color: var(--mi-text); line-height: 1.6; font-size: 0.925rem; }
+.mi-score {
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    white-space: nowrap;
+}
+.mi-score-high { color: var(--mi-success); background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.35); }
+.mi-score-mid  { color: var(--mi-warning); background: var(--mi-brand-soft); border: 1px solid var(--mi-brand-border); }
+.mi-score-low  { color: var(--mi-muted);   background: var(--mi-bg); border: 1px solid var(--mi-border); }
+
+/* ── État vide ───────────────────────────────────────────────── */
+.mi-empty {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border: 1px dashed var(--mi-border);
+    border-radius: var(--mi-radius);
+    background: var(--mi-surface);
+}
+.mi-empty-title { font-weight: 600; color: var(--mi-ink); margin-bottom: 0.3rem; }
+.mi-empty-text { color: var(--mi-muted); font-size: 0.9rem; }
+
+/* ── Barre latérale : carte utilisateur ──────────────────────── */
+.mi-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--mi-border);
+    border-radius: var(--mi-radius);
+    background: var(--mi-bg);
+    margin-bottom: 0.5rem;
+}
+.mi-avatar {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--mi-brand);
+    color: #0B1222;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mi-user-info { min-width: 0; }
+.mi-user-name, .mi-user-mail {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mi-user-name { font-weight: 600; font-size: 0.9rem; color: var(--mi-ink); }
+.mi-user-mail { font-size: 0.78rem; color: var(--mi-muted); }
+.mi-status {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    color: var(--mi-muted);
+}
+.mi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mi-success); }
+
+/* ── Power BI ────────────────────────────────────────────────── */
+.mi-embed {
+    border: 1px solid var(--mi-border);
+    border-radius: var(--mi-radius);
+    overflow: hidden;
+    background: var(--mi-surface);
+    box-shadow: var(--mi-shadow);
+}
+.mi-embed iframe { display: block; width: 100%; height: 720px; border: 0; }
+
+/* ── Page de connexion ───────────────────────────────────────── */
+.mi-login-visual {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.mi-login-mic {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+.mi-login-quote {
+    position: absolute;
+    left: 3rem;
+    right: 3rem;
+    bottom: 3rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.25;
+}
+.mi-login-quote span {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mi-brand);
+}
+.mi-login-brand img { height: 34px; }
+.mi-login-title { font-size: 2.5rem; font-weight: 700; line-height: 1.1; color: var(--mi-ink); }
+.mi-login-subtitle { color: var(--mi-muted); font-size: 0.95rem; margin: 0.6rem 0 1.75rem; }
+.mi-login-foot { color: var(--mi-muted); font-size: 0.8rem; padding-top: 2rem; }
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .block-container { padding-top: 1.25rem; }
+    .mi-page-title { font-size: 1.4rem; }
+    .mi-embed iframe { height: 480px; }
+}
+
+/* ── Bandeau d'accueil ───────────────────────────────────────── */
+.mi-banner {
+    background: var(--mi-surface);
+    border: 1px solid var(--mi-border);
+    border-left: 4px solid var(--mi-brand);
+    border-radius: var(--mi-radius);
+    padding: 1.6rem 1.9rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--mi-shadow);
+}
+.mi-banner-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--mi-ink); }
+.mi-banner-text { margin-top: 0.35rem; max-width: 680px; color: var(--mi-muted); font-size: 0.95rem; }
+.mi-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.mi-badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+    color: var(--mi-brand);
+    background: var(--mi-brand-soft);
+    border: 1px solid var(--mi-brand-border);
+}
+
+/* ── Cartes d'indicateurs ────────────────────────────────────── */
+.mi-kpi {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: var(--mi-surface);
+    border: 1px solid var(--mi-border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    box-shadow: var(--mi-shadow);
+}
+.mi-kpi-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mi-kpi-icon { background: var(--mi-brand-soft); color: var(--mi-brand); }
+.mi-kpi-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--mi-muted); }
+.mi-kpi-value { font-size: 1.5rem; font-weight: 700; color: var(--mi-ink); line-height: 1.2; }
+
+/* ── Réunions récentes ───────────────────────────────────────── */
+.mi-meeting {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--mi-border);
+}
+.mi-meeting:last-child { border-bottom: none; }
+.mi-meeting-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mi-brand); flex-shrink: 0; }
+.mi-meeting-main { flex: 1; min-width: 0; }
+.mi-meeting-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--mi-ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mi-meeting-meta { font-size: 0.78rem; color: var(--mi-muted); }
+.mi-meeting-words {
+    font-size: 0.75rem;
+    color: var(--mi-brand);
+    background: var(--mi-brand-soft);
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .mi-banner { padding: 1.5rem 1.25rem; }
+    .mi-banner-title { font-size: 1.45rem; }
+}
+
+/* ── Cartes (conteneurs à bordure avec une clé « card_… ») : fond blanc ── */
+[class*="st-key-card_"] {
+    background: var(--mi-surface);
+    box-shadow: var(--mi-shadow);
+}
+
+
+/* ── Champs de saisie : contour fin, fond transparent (style « outlined ») ── */
+[data-baseweb="input"], [data-baseweb="select"] > div, [data-baseweb="textarea"],
+[data-testid="stFileUploaderDropzone"] {
+    background-color: transparent !important;
+    border-color: #34435F !important;
+}
+[data-baseweb="input"]:focus-within, [data-baseweb="select"] > div:focus-within,
+[data-baseweb="textarea"]:focus-within {
+    border-color: var(--mi-brand) !important;
+}
+[data-baseweb="input"] input, [data-baseweb="textarea"] textarea { background-color: transparent !important; }
+[data-testid="stWidgetLabel"] p { color: var(--mi-muted); font-size: 0.82rem; }
+
+/* ── Boutons principaux : ambre plein, texte sombre ───────────── */
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button[kind="primary"],
+.stDownloadButton > button[kind="primary"] {
+    color: #0B1222;
+    font-weight: 600;
+}
+.stButton > button[kind="primary"]:hover,
+.stFormSubmitButton > button[kind="primary"]:hover {
+    background-color: var(--mi-brand-hover);
+    border-color: var(--mi-brand-hover);
+    color: #0B1222;
+}
+
+/* ── Barre latérale ──────────────────────────────────────────── */
+[data-testid="stSidebarLogo"] { height: 2.2rem; }
+[data-testid="stSidebarNav"] a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--mi-brand); }
+.stFormSubmitButton > button { background-color: var(--mi-brand); border-color: var(--mi-brand); color: #0B1222; font-weight: 600; }
+.stFormSubmitButton > button:hover { background-color: var(--mi-brand-hover); border-color: var(--mi-brand-hover); color: #0B1222; }
