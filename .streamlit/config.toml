@@ -1,0 +1,21 @@
+[theme]
+base = "dark"
+primaryColor = "#F2A922"
+backgroundColor = "#0B1222"
+secondaryBackgroundColor = "#131D33"
+textColor = "#E8ECF4"
+linkColor = "#F2A922"
+borderColor = "#26344F"
+showWidgetBorder = true
+baseRadius = "8px"
+baseFontSize = 15
+font = "Urbanist:https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap"
+headingFont = "Urbanist"
+
+[theme.sidebar]
+backgroundColor = "#080E1B"
+secondaryBackgroundColor = "#111A2E"
+borderColor = "#1C2741"
+
+[client]
+toolbarMode = "minimal"
